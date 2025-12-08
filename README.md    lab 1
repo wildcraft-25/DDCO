@@ -1,0 +1,5 @@
+module f(a,b,c,d,e);
+Input a,b,c,d; 
+Output e;
+Assign e=a&b|c&d; 
+endmodule
