@@ -1,0 +1,17 @@
+module de_mux_1_2 (I,sel, y); 
+input I;
+input sel;
+output reg [1:0] y; 
+always@ (sel, I)
+begin
+case (sel)
+1'b0: begin y [0] = I; y [1] = 1'b0; end 
+1'b1: begin y [0] = 1'b0 ; y [1] = I; end
+endcase
+end 
+endmidule
+
+
+
+
+
