@@ -1,0 +1,13 @@
+module de_mux_1_4 (I,sel, y); 
+input I;
+input [1:0] sel; 
+output reg [3:0] y; 
+always@ (sel, I)
+begin case (sel)
+2'b00: begin y [0] = I; y [1] = 0; y [2] = 0; y [3] = 0; end
+2'b01: begin y [0] = 0; y [1] = I; y [2] = 0; y [3] = 0; end
+2'b10: begin y [0] = 0; y [1] = 0; y [2] = I; y [3] = 0; end
+2'b11: begin y [0] = 0; y [1] = 0; y [2] = 0; y [3] = I; end
+endcase
+end 
+endmodule
