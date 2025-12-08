@@ -1,0 +1,14 @@
+module mux2_1( I, sel, y);
+input [1:0] I; 
+input sel; 
+output y; 
+reg y;
+always@ (sel , I)
+begin
+    case (sel)
+          1'b0: y = I [0];
+          1'b1: y = I [1];
+     end case
+end 
+endmodule
+
