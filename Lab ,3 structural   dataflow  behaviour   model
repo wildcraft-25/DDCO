@@ -1,0 +1,31 @@
+module structural(a, b, y);
+input a, b;
+output y;
+
+or g1(y, a, b);
+
+endmodule
+
+
+
+module dataflow(a,b,y); 
+input a,b; 
+output y;
+assign y=a|b;
+endmodule
+
+
+
+module beh(a, b, y);
+input a, b;
+output y;
+reg y;
+
+always @(*) begin
+    if ((a == 0) && (b == 0))
+        y = 0;
+    else
+        y = 1;
+end
+
+endmodule
