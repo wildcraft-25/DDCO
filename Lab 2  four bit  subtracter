@@ -1,0 +1,22 @@
+module fs(a, b, cin, d, bout);
+input a, b, cin;
+output d, bout;
+
+assign d    = a ^ b ^ cin;
+assign bout = (~a & b) | (~a & cin) | (b & cin);
+
+endmodule
+module fourbitsub(a, bin, diff, bout);
+input  [3:0] a;
+input  [3:0] bin;
+output [3:0] diff;
+output bout;
+
+wire b1, b2, b3;
+
+fs g0(a[0], bin[0], 1'b0, diff[0], b1);
+fs g1(a[1], bin[1], b1,   diff[1], b2);
+fs g2(a[2], bin[2], b2,   diff[2], b3);
+fs g3(a[3], bin[3], b3,   diff[3], bout);
+
+endmodule
