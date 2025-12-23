@@ -1,0 +1,60 @@
+module mux2_1(I, sel, y);
+input  [1:0] I;
+input  sel;
+output y;
+reg y;
+
+always @(*) begin
+    case (sel)
+        1'b0: y = I[0];
+        1'b1: y = I[1];
+        default: y = 1'b0;
+    endcase
+end
+
+endmodule
+
+
+
+
+module mux_4_1 (I, sel, y);
+input  [3:0] I;
+input  [1:0] sel;
+output y;
+reg y;
+
+always @(*) begin
+    case (sel)
+        2'b00: y = I[0];
+        2'b01: y = I[1];
+        2'b10: y = I[2];
+        default: y = I[3];
+    endcase
+end
+
+endmodule
+
+
+
+
+
+module mux_8_1 (I, sel, y);
+input  [7:0] I;
+input  [2:0] sel;
+output y;
+reg y;
+
+always @(*) begin
+    case (sel)
+        3'b000: y = I[0];
+        3'b001: y = I[1];
+        3'b010: y = I[2];
+        3'b011: y = I[3];
+        3'b100: y = I[4];
+        3'b101: y = I[5];
+        3'b110: y = I[6];
+        default: y = I[7];
+    endcase
+end
+
+endmodule
